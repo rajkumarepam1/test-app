@@ -36,8 +36,6 @@ An interactive command-line quiz game for practicing JavaScript, Node.js, and ge
 
 The repository listing also includes `.DS_Store`, a macOS metadata file not used by the application.
 
-> **File layout mismatch:** The listed JavaScript and JSON files are at the repository root. However, `index.js` imports modules from `./src/` and loads question data from `./data/questions.json`. Those paths do not match the files in the repository listing. The application will need the paths corrected or the files placed in the expected directories before it can run successfully.
-
 ## Prerequisites
 
 - Node.js 18 or later (`engines` in `package.json`).
@@ -50,7 +48,7 @@ git clone https://github.com/rajkumarepam1/test-app.git
 cd test-app
 ```
 
-No external dependencies are declared, so no dependency installation is required. Resolve the file layout mismatch above before running the CLI.
+No external dependencies are declared, so no dependency installation is required.
 
 ## Environment configuration
 
@@ -64,9 +62,9 @@ The configured start command is:
 npm start
 ```
 
-This runs `node index.js`. Once the file paths resolve, the CLI prompts for a category and question count, then accepts numbered answers. Press Enter to continue between prompts; after the results, answer `y` at the replay prompt to begin another quiz.
+In Windows PowerShell, use `npm.cmd start` if `npm start` is blocked by the script execution policy.
 
-As checked in, the root-level file layout does not satisfy the paths referenced by `index.js`, so the command is not expected to run until that mismatch is addressed.
+This runs `node index.js`. The CLI prompts for a category and question count, then accepts numbered answers. Press Enter to continue between prompts; after the results, answer `y` at the replay prompt to begin another quiz.
 
 ## Available scripts
 
@@ -103,6 +101,5 @@ Use the usual Git workflow to propose changes. Keep changes consistent with the 
 
 ## Notes and limitations
 
-- The paths in `index.js` (`./src/input.js`, `./src/quiz.js`, `./src/colors.js`, and `./data/questions.json`) conflict with the root-level file paths in the repository listing. Fix the mismatch before expecting the app to launch.
 - No test files, environment-variable requirements, build configuration, or deployment instructions were found in the listed contents.
 - The package description emphasizes JavaScript learning; the included questions also cover Node.js and general programming.
