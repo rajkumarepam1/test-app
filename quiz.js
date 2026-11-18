@@ -61,9 +61,12 @@ export class Quiz {
    * @returns {number}
    */
   get progress() {
-    return Math.round((this.currentIndex / this.questions.length) * 100);
-  }
+  if (this.questions.length === 0) return 100;
 
+  return Math.round(
+    (this.currentIndex / this.questions.length) * 100
+  );
+}
   /**
    * Displays the current question and gets user answer
    * @param {readline.Interface} rl - Readline interface
