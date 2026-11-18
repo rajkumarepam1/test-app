@@ -29,12 +29,22 @@ An interactive command-line quiz game for practicing JavaScript, Node.js, and ge
 ├── colors.js         # ANSI terminal color helpers
 ├── index.js          # CLI entry point and application loop
 ├── input.js          # Readline prompts and input handling
+├── package-lock.json # npm lockfile
 ├── package.json      # Metadata, scripts, and Node requirement
 ├── questions.json    # Categories and quiz question data
 └── quiz.js           # Quiz state, question flow, scoring, and results
 ```
 
 The repository listing also includes `.DS_Store`, a macOS metadata file not used by the application.
+
+## Application Execution Flow
+
+1. On startup, `index.js` loads and parses the question bank from `questions.json`.
+2. The CLI displays the available quiz categories from that data.
+3. The user selects a category and chooses a question count. The available count options depend on the number of questions in the selected category.
+4. The application presents the selected questions in shuffled order. For each question, it validates the numbered answer against the available choices, records the response, and displays whether it was correct along with an explanation when provided.
+5. The quiz displays progress as the user works through the questions, then shows the final score and percentage. Incorrect answers are listed for review with the user's answer and the correct answer.
+6. The CLI asks whether the user wants to play again; confirming restarts the category-selection flow.
 
 ## Prerequisites
 
