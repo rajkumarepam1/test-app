@@ -19,9 +19,9 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-import { createInterface, select, confirm, pressEnter } from './src/input.js';
-import { Quiz } from './src/quiz.js';
-import * as colors from './src/colors.js';
+import { createInterface, select, confirm, pressEnter } from './input.js';
+import { Quiz } from './quiz.js';
+import * as colors from './colors.js';
 
 // Get the directory of the current module (ES modules don't have __dirname)
 const __filename = fileURLToPath(import.meta.url);
@@ -32,7 +32,7 @@ const __dirname = dirname(__filename);
  * @returns {Promise<Object>} Questions data
  */
 async function loadQuestions() {
-  const filePath = join(__dirname, 'data', 'questions.json');
+  const filePath = join(__dirname, 'questions.json');
   const data = await readFile(filePath, 'utf-8');
   return JSON.parse(data);
 }
@@ -62,7 +62,6 @@ async function main() {
     // Load questions
     const data = await loadQuestions();
     const categoryIds = Object.keys(data.categories);
-    const filePath = join(__dirname, 'data', 'questions.json');
 
     let playing = true;
 
