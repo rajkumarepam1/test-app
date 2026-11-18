@@ -62,6 +62,7 @@ async function main() {
     // Load questions
     const data = await loadQuestions();
     const categoryIds = Object.keys(data.categories);
+    const filePath = join(__dirname, 'data', 'questions.json');
 
     let playing = true;
 
